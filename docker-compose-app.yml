@@ -1,0 +1,13 @@
+services:
+  products-app:
+    build:
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://products-db:5432/productsdb
+      SPRING_DATASOURCE_USERNAME: abnuser
+      SPRING_DATASOURCE_PASSWORD: pass@123
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - products-db

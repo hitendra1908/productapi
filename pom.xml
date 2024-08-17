@@ -8,25 +8,23 @@
 		<version>3.3.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.api.productapi</groupId>
 	<artifactId>productapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>productapi</name>
 	<description>Spring Boot application for managing Products</description>
+
 	<developers>
 		<developer>
 			<name>Hitendra Chouhan</name>
 		</developer>
 	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
