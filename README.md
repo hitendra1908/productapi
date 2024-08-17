@@ -26,3 +26,7 @@ $ ./run.sh stop_infra
 $ ./run.sh start_infra
 $ ./run.sh stop_infra
 ```
+-------------------
+1. KinD -> https://kind.sigs.k8s.io/
+2. kubectl -> https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homebrew-on-macos
+3. lens tool -> https://k8slens.dev/  --> need lens id, so can skip this
