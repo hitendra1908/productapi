@@ -1,6 +1,7 @@
 package com.api.productapi.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -31,6 +32,12 @@ public class ApplicationExceptionHandler {
     public ProblemDetail handleHttpMessageNotReadableException(HttpMessageNotReadableException exception) {
         log.error("Bad Request ", exception);
         return createProblemDetail(exception, HttpStatus.BAD_REQUEST, "Invalid request");
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ProblemDetail handleDataIntegrityViolationException(DataIntegrityViolationException exception) {
+        log.error("Bad Request ", exception);
+        return createProblemDetail(exception, HttpStatus.BAD_REQUEST, "Invalid request: product name already exist");
     }
 
     @ExceptionHandler(Exception.class)
