@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,7 +42,8 @@ public class ProductController {
             produces = {MediaType.APPLICATION_JSON_VALUE}
     )
     public ResponseEntity<Product> createProduct(@RequestBody ProductRequestDto productRequest) {
-        return ResponseEntity.ok(productService.createProduct(productRequest));
+        Product savedProduct = productService.createProduct(productRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
     }
 
     @Operation(summary = "Get all Products", description = "Retrieve a list of all Products")
