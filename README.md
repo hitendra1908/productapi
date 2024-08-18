@@ -56,8 +56,13 @@ kubectl get all
 1. make build
 2. make docker image --> docker build -t products-app:1.0.0 .(dont forget dot(.)) & do not create latest tag, as we can'nt load latest tag in kind cluster, because if tag is latest, it always try to fetch image from repository 
 3. /kind folder run create cluster 
-4. add load local docker image whihc we created in step 2 inside the cluster which we created in step 3 by -> kind load docker-image products-app:1.0.0 -n products-k8s
-5. apply all the kubernetes file by -> kubectl apply -f . -->  (with dot) is to run all files in current folder
+4. add load local docker image which we created in step 2 inside the cluster which we created in step 3 by -> kind load docker-image products-app:1.0.0 -n products-k8s
+5. go to k8s folder then apply all the kubernetes file by -> kubectl apply -f . -->  (with dot) is to run all files in current folder
 6. check status by -> kubectl get all
 7. check logs by -> kubectl logs {pod name}
+8. to delete all -> kubectl delete -f .
 8. hit -> http://localhost:18080/api/products
+
+## Swagger Documentation
+Swagger docs will be available at : http://localhost:8080/swagger-ui/index.html
+You can also download Json & Yaml file from http://localhost:8080/v3/api-docs and http://localhost:8080/v3/api-docs.yaml respectively.
