@@ -60,8 +60,9 @@ kubectl get all
 5. go to k8s folder then apply all the kubernetes file by -> kubectl apply -f . -->  (with dot) is to run all files in current folder
 6. check status by -> kubectl get all
 7. check logs by -> kubectl logs {pod name}
-8. to delete all -> kubectl delete -f .
-8. hit -> http://localhost:18080/api/products
+8. kubectl scale deployment products-api-deployment --replicas=2
+9.to delete all -> kubectl delete -f .
+hit -> http://localhost:18080/api/products
 
 ## Swagger Documentation
 Swagger docs will be available at : http://localhost:8080/swagger-ui/index.html
