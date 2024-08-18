@@ -14,14 +14,14 @@ This project utilizes the following technologies:
 * Docker
 * Kubernetes
 * [KinD](https://kind.sigs.k8s.io/) ->  kind is a tool for running local Kubernetes clusters using Docker container “nodes”.
-* kubectl -> https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homebrew-on-macos
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homebrew-on-macos) -> The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
 * [REST Assured](https://rest-assured.io/) and [Testcontainers](https://testcontainers.com/) (for Spring integration tests using a container)
 
 ## Project Structure
 Project has number of files/folders, below is the explanation for each of them:
 
 1. **src** -> source code of the ProductService.
-2. **k8s** -> kubernetes configuration files.
+2. **k8s** -> kubernetes configuration manifest files.
 3. **kind** -> kubernetes cluster files to create and destroy cluster locally.
 4. **DockerFile** -> to create a docker image of ProductAPI.
 5. **docker-compose.yml** -> compose file to create docker container of database.
@@ -90,7 +90,7 @@ kind does not require kubectl, but you will not be able to perform some of the c
    ```sh
    cd kind
    
-4. Create kubernetes cluster locally using kind
+4. Create kubernetes cluster locally using kind, for that execute below command:
    ```sh
    sh create-cluster.sh
    
@@ -98,7 +98,7 @@ kind does not require kubectl, but you will not be able to perform some of the c
    ```sh
    kind load docker-image products-app:1.0.0 -n products-k8s
    
-6. Navigate to k8s folder and then apply all the k8s files by below command (ends with dot), it will run all the file in the current folder
+6. Navigate to k8s folder and then apply all the k8s manifest files by below command (ends with dot), it will run all the file in the current folder
    ```sh
    kubectl apply -f .
 
@@ -106,7 +106,7 @@ kind does not require kubectl, but you will not be able to perform some of the c
    ```sh
    kubectl get all
    
-8. To check the logs of running pod 
+8. To check the logs of running pod (pod name can be found from the output of above command)
    ```sh
    kubectl logs {pod name}
    
@@ -114,7 +114,7 @@ kind does not require kubectl, but you will not be able to perform some of the c
    ```sh
    kubectl scale deployment products-api-deployment --replicas=2
    
-10. To delete all:
+10. To delete all manifest:
     ```sh
     kubectl delete -f .
    
@@ -133,8 +133,9 @@ Access API using NodePort http://localhost:18080/api/products
 ```shell
 kubectl get pods
 kubectl get all
-kubectl logs pods products-api
-kubectl delete pods products-api
+kubectl logs pods {podname}
+kubectl describe pods {podname}
+kubectl delete pods {podname}
 kubectl apply -f 3-products-api.yaml  --> to run the pod
 
 ```
@@ -144,9 +145,12 @@ kubectl apply -f 3-products-api.yaml  --> to run the pod
 ```shell
 kubectl apply -f deployment-api.yaml --> to start deployment
 kubectl delete -f deployment-api.yaml
+```
+### Horizontal scaling of Pod
+
+```shell
 kubectl scale deployment products-api-deployment --replicas=2
 ```
-
 ### Services
 
 * **ClusterIP**:  Exposes the Service on a cluster-internal IP. Only reachable from within the cluster.
