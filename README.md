@@ -113,60 +113,41 @@ kind does not require kubectl, but you will not be able to perform some of the c
 9. To scale up number of pods:
    ```sh
    kubectl scale deployment products-api-deployment --replicas=2
-
+   
 10. To delete all:
-   ```sh
-   kubectl delete -f .
-
-
-
+    ```sh
+    kubectl delete -f .
+   
 11. To remove the KinD cluster, move to kind folder and then execute below command:
-   ```sh
-   sh destroy-cluster.sh
+    ```sh
+    sh destroy-cluster.sh
 
+## How to Access API on Kubernetes
 
+Access API using NodePort http://localhost:18080/api/products
 
+## Kubernetes Useful commands
 
+### Pods
 
-------- With DockerFile_____
-docker build -t products-app:1.0.0 .
-docker run -p 8080:8080 products-app
-
-
--------------------
-1. KinD -> https://kind.sigs.k8s.io/
-2. kubectl -> https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homebrew-on-macos
-3. 
-
-
-
-
+```shell
 kubectl get pods
 kubectl get all
-
 kubectl logs pods products-api
-
 kubectl delete pods products-api
-
 kubectl apply -f 3-products-api.yaml  --> to run the pod
 
-kubectl apply -f deployment-api.yaml --> to start deployment, then we don't need to run pod
+```
+
+### Deployments
+
+```shell
+kubectl apply -f deployment-api.yaml --> to start deployment
 kubectl delete -f deployment-api.yaml
+kubectl scale deployment products-api-deployment --replicas=2
+```
 
-kubectl scale deployment products-api --replicas=2  ---> to scale up pods
+### Services
 
-kubectl apply -f . -->  (with dot) is to run all files in current folder
-kubectl get all
-
--------to run with Kubernetes-----
-1. make build
-2. make docker image --> docker build -t products-app:1.0.0 .(dont forget dot(.)) & do not create latest tag, as we can'nt load latest tag in kind cluster, because if tag is latest, it always try to fetch image from repository 
-3. /kind folder run create cluster 
-4. add load local docker image which we created in step 2 inside the cluster which we created in step 3 by -> kind load docker-image products-app:1.0.0 -n products-k8s
-5. go to k8s folder then apply all the kubernetes file by -> kubectl apply -f . -->  (with dot) is to run all files in current folder
-6. check status by -> kubectl get all
-7. check logs by -> kubectl logs {pod name}
-8. kubectl scale deployment products-api-deployment --replicas=2
-9.to delete all -> kubectl delete -f .
-hit -> http://localhost:18080/api/products
-
+* **ClusterIP**:  Exposes the Service on a cluster-internal IP. Only reachable from within the cluster.
+* **NodePort**: Exposes the Service on each node's IP address at a static port. Accessible from outside the cluster.
