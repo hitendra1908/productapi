@@ -23,10 +23,11 @@ Project has number of files/folders, below is the explanation for each of them:
 1. **src** -> source code of the ProductService.
 2. **k8s** -> kubernetes configuration manifest files.
 3. **kind** -> kubernetes cluster files to create and destroy cluster locally.
-4. **DockerFile** -> to create a docker image of ProductAPI.
-5. **docker-compose.yml** -> compose file to create docker container of database.
-6. **docker-compose-app.yml** -> compose file to create docker container of application.
-7. **run.sh** -> file containing different handy commands to start/stop application and dependency services.
+4. **postman** -> contains postman collection json file to test endpoint via Postman.
+5. **DockerFile** -> to create a docker image of ProductAPI.
+6. **docker-compose.yml** -> compose file to create docker container of database.
+7. **docker-compose-app.yml** -> compose file to create docker container of application.
+8. **run.sh** -> file containing different handy commands to start/stop application and dependency services.
 
 ## Swagger Documentation
 Swagger docs will be available at : http://localhost:8080/swagger-ui/index.html
@@ -45,6 +46,13 @@ You can also download Json & Yaml file from http://localhost:8080/v3/api-docs an
 3. To stop the application:
    ```sh
    sh run.sh stop
+
+## How to Access API in Local
+
+Access API using http://localhost:8080/api/products
+
+## Test Endpoints via Postman
+Postman collection is available at "postman" folder to test endpoints via Postman. It has 2 configurations one to test endpoints on local setup and second for kubernetes cluster.
 
 ## How to Run the Project for Development or to Debug
 

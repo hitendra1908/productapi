@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "c6da0952-9cfe-4299-ae34-e0ec5b742fa4",
+		"name": "ProductsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "local",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test12\",\n    \"description\": \"test description\",\n    \"price\": \"12.09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test12\",\n    \"description\": \"test description updated\",\n    \"price\": \"12.09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/products/3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kubernetes cluster",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:18080/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "18080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:18080/api/products/3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "18080",
+							"path": [
+								"api",
+								"products",
+								"3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:18080/api/products/3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "18080",
+							"path": [
+								"api",
+								"products",
+								"3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test12\",\n    \"description\": \"test description\",\n    \"price\": \"12.09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:18080/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "18080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test12\",\n    \"description\": \"test description updated\",\n    \"price\": \"12.09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:18080/api/products/3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "18080",
+							"path": [
+								"api",
+								"products",
+								"3d18d0a8-0d7c-4d08-b8dd-0c1fd9e1711e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
