@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: products-config
+data:
+  postgres_host: postgres-svc
+  postgres_port: "5432"
+  postgres_dbname: productsdb
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: products-secrets
+type: Opaque
+data:
+  postgres_username: YWJudXNlcg==
+  postgres_password: UGFzc0AxMjM=
